@@ -1,0 +1,11 @@
+{
+    "name": "rorepoid/php-game",
+    "description": "Just a php repo.",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
