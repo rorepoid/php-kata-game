@@ -9,4 +9,4 @@ $soldier1 = new Soldier("Adán");
 $soldier2 = new Soldier("Zeus");
 
 // Present game
-echo printf("%s vs %s", $soldier1->getName(), $soldier2->getName());
+printf("%s vs %s \n", $soldier1->getName(), $soldier2->getName());
