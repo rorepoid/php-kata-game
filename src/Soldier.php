@@ -2,7 +2,8 @@
 
 namespace App;
 
-final class Soldier {
+final class Soldier
+{
 	private $name;
 	private $health;
 
