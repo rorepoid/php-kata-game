@@ -13,6 +13,6 @@ final class DivineAxe implements AttackRepository
 
     public function getAction(): string
     {
-        return 'throws a Meteor Jab';
+        return 'throws a Meteor Jab against';
     }
 }

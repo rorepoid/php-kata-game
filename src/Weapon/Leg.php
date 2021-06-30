@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace App\Weapon;
 
 use App\Attack\AttackRepository;
-use App\Attack\Kick;
+use App\Attack\DivineAxe;
 
 final class Leg implements WeaponRepository
 {
@@ -14,8 +14,15 @@ final class Leg implements WeaponRepository
         return "Leg";
     }
 
-    public function createAttack(?AttackRepository $attack = null): AttackRepository
+    public function createAttack(AttackRepository $attack): AttackRepository
     {
-        return $attack ?? new Kick();
+        return $attack;
+    }
+
+    public function attacks(): array
+    {
+        return [
+            new DivineAxe(),
+        ];
     }
 }

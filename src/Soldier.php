@@ -5,18 +5,24 @@ declare(strict_types = 1);
 namespace App;
 
 use App\Attack\AttackRepository;
+use App\Attack\Kick;
+use App\Attack\Punch;
+use App\Weapon\Leg;
+use App\Weapon\WeaponRepository;
 
 final class Soldier
 {
 	private string $name;
 	private int $hp;
 	private bool $isAlive;
+	private WeaponRepository $weapon;
 
 	public function __construct(string $name)
 	{
 		$this->name = $name;
 		$this->isAlive = true;
 		$this->hp = 15;
+		$this->weapon = new Leg();
 	}
 
 	public static function create(string $name): Soldier
@@ -35,7 +41,7 @@ final class Soldier
 	public function attack(AttackRepository $attack, Soldier $soldier): void
 	{
 		printf(
-			"%s %s against %s \n",
+			"%s %s %s \n",
 			$this->getName(),
 			$attack->getAction(),
 			$soldier->getName()
@@ -64,5 +70,16 @@ final class Soldier
 	public function isAlive(): bool
 	{
 		return $this->hp > 0;
+	}
+
+	public function attacks(): array
+	{
+		$weaponAttacks = $this->weapon->attacks();
+		$defaultAttacks = [
+			new Kick(),
+			new Punch(),
+		];
+
+		return array_merge($defaultAttacks, $weaponAttacks);
 	}
 }

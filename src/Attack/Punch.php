@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Attack;
 
-final class Fist implements AttackRepository
+final class Punch implements AttackRepository
 {
     public function getName(): string
     {

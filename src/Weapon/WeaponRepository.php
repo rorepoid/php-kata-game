@@ -10,5 +10,7 @@ interface WeaponRepository
 {
     public function getName(): string;
 
-    public function createAttack(?AttackRepository $attack = null): AttackRepository;
+    public function createAttack(AttackRepository $attack): AttackRepository;
+
+    public function attacks(): array;
 }
