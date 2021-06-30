@@ -4,7 +4,7 @@ namespace App;
 
 use App\Weapon\Leg;
 
-require_once('./vendor/autoload.php');
+require_once './vendor/autoload.php';
 
 // Create soldiers
 $soldier1 = Soldier::create("Adam");
