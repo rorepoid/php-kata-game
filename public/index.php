@@ -3,10 +3,6 @@
 namespace App;
 
 use App\Attack\AttackRepository;
-use App\Attack\DivineAxe;
-use App\Attack\Fist;
-use App\Attack\Kick;
-use App\Attack\Punch;
 
 require_once('./vendor/autoload.php');
 
