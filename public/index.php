@@ -13,10 +13,12 @@ printf("%s vs %s \n", $soldier1->getName(), $soldier2->getName());
 
 // Start game
 while (true) {
+    echo "\n";
     $soldier1->attack($soldier2);
     if (!$soldier1->isAlive() || !$soldier2->isAlive()) {
         break;
     }
+    echo "\n";
     $soldier2->attack($soldier1);
 }
 
