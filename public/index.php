@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Attack\AttackRepository;
 use App\Attack\DivineAxe;
+use App\Attack\Fist;
 use App\Attack\Kick;
 
 require_once('./vendor/autoload.php');
@@ -18,18 +20,14 @@ printf("%s vs %s \n", $soldier1->getName(), $soldier2->getName());
 while (true) {
     echo "\n";
 
-    (bool) rand(0, 1)
-        ? $soldier1->attack(new DivineAxe(), $soldier2)
-        : $soldier1->attack(new Kick(), $soldier2);
+    $soldier1->attack(randomAttack(), $soldier2);
 
     if (!$soldier1->isAlive() || !$soldier2->isAlive()) {
         break;
     }
     echo "\n";
 
-    (bool) rand(0, 1)
-        ? $soldier2->attack(new DivineAxe(), $soldier1)
-        : $soldier2->attack(new Kick(), $soldier1);
+    $soldier2->attack(randomAttack(), $soldier1);
 
     if (!$soldier1->isAlive() || !$soldier2->isAlive()) {
         break;
@@ -46,3 +44,15 @@ if ($soldier1->isAlive()) {
 
 printf("\n%s has been killed by %s \n", $deadSoldier->getName(), $killerSoldier->getName());
 printf("Game is over, %s wins\n", $killerSoldier->getName());
+
+function randomAttack(): AttackRepository
+{
+    $attacks = [
+        new Kick(),
+        new Fist(),
+        new DivineAxe(),
+    ];
+
+    $randomAttackIndex = array_rand($attacks);
+    return $attacks[$randomAttackIndex];
+}
