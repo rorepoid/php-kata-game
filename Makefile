@@ -6,3 +6,4 @@ run:
 
 check:
 	@docker run --rm -v `pwd`/src:/usr/app/src:Z -v `pwd`/public:/usr/app/public:Z -v `pwd`/psalm.xml:/usr/app/psalm.xml:Z php-game ./vendor/bin/psalm --show-info=true
+	@docker run --rm -v `pwd`/src:/usr/app/src:Z -v `pwd`/public:/usr/app/public:Z php-game ./vendor/bin/phpcs --standard=PSR12 public src
