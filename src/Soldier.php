@@ -4,19 +4,19 @@ declare(strict_types = 1);
 
 namespace App;
 
+use App\Attack\AttackRepository;
+
 final class Soldier
 {
 	private string $name;
 	private int $hp;
 	private bool $isAlive;
-	private int $attack;
 
 	public function __construct(string $name)
 	{
 		$this->name = $name;
 		$this->isAlive = true;
-		$this->hp = 10;
-		$this->attack = 5;
+		$this->hp = 15;
 	}
 
 	public static function create(string $name): Soldier
@@ -32,15 +32,21 @@ final class Soldier
 		return $this->name;
 	}
 
-	public function attack(Soldier $soldier): void
+	public function attack(AttackRepository $attack, Soldier $soldier): void
 	{
-		printf("%s attacks %s \n", $this->getName(), $soldier->getName());
-		$soldier->recievesAttack($this->attack);
+		printf(
+			"%s %s against %s \n",
+			$this->getName(),
+			$attack->getAction(),
+			$soldier->getName()
+		);
+
+		$soldier->recievesAttack($attack);
 	}
 
-	private function recievesAttack(int $attack): void
+	private function recievesAttack(AttackRepository $attack): void
 	{
-		$this->hp -= $attack;
+		$this->hp -= $attack->getDamage();
 		printf("%s received attack \n", $this->name);
 		printf("%s HP is now %s \n", $this->name, $this->hp);
 

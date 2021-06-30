@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Attack\DivineAxe;
+use App\Attack\Kick;
+
 require_once('./vendor/autoload.php');
 
 // Crear soldados
@@ -14,12 +17,23 @@ printf("%s vs %s \n", $soldier1->getName(), $soldier2->getName());
 // Start game
 while (true) {
     echo "\n";
-    $soldier1->attack($soldier2);
+
+    (bool) rand(0, 1)
+        ? $soldier1->attack(new DivineAxe(), $soldier2)
+        : $soldier1->attack(new Kick(), $soldier2);
+
     if (!$soldier1->isAlive() || !$soldier2->isAlive()) {
         break;
     }
     echo "\n";
-    $soldier2->attack($soldier1);
+
+    (bool) rand(0, 1)
+        ? $soldier2->attack(new DivineAxe(), $soldier1)
+        : $soldier2->attack(new Kick(), $soldier1);
+
+    if (!$soldier1->isAlive() || !$soldier2->isAlive()) {
+        break;
+    }
 }
 
 if ($soldier1->isAlive()) {
