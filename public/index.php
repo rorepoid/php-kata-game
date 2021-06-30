@@ -7,7 +7,7 @@ use App\Attack\AttackRepository;
 require_once('./vendor/autoload.php');
 
 // Create soldiers
-$soldier1 = Soldier::create("Adán");
+$soldier1 = Soldier::create("Adam");
 $soldier2 = Soldier::create("Zeus");
 
 // Present game
