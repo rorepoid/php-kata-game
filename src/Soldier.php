@@ -7,14 +7,14 @@ namespace App;
 final class Soldier
 {
 	private string $name;
-	private int $health;
+	private int $hp;
 	private int $attack;
 
 	public function __construct(string $name)
 	{
 		$this->name = $name;
 		$this->isAlive = true;
-		$this->health = 10;
+		$this->hp = 10;
 		$this->attack = 5;
 	}
 
@@ -39,9 +39,9 @@ final class Soldier
 
 	private function recievesAttack(int $attack): void
 	{
-		$this->health -= $attack;
+		$this->hp -= $attack;
 		printf("%s received attack \n", $this->name);
-		printf("%s health is now %s \n", $this->name, $this->health);
+		printf("%s HP is now %s \n", $this->name, $this->hp);
 
 		if (!$this->isAlive()) {
 			$this->die();
@@ -56,6 +56,6 @@ final class Soldier
 
 	public function isAlive(): bool
 	{
-		return $this->health > 0;
+		return $this->hp > 0;
 	}
 }
