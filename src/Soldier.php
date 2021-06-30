@@ -8,6 +8,7 @@ final class Soldier
 {
 	private string $name;
 	private int $hp;
+	private bool $isAlive;
 	private int $attack;
 
 	public function __construct(string $name)
