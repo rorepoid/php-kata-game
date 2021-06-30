@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Shared;
 
@@ -25,7 +25,7 @@ final class AttackCollection
         return $this->items;
     }
 
-    function random(): AttackRepository
+    public function random(): AttackRepository
     {
         return $this->items[array_rand($this->items)];
     }
