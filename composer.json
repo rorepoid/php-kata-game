@@ -7,8 +7,14 @@
             "App\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/src/"
+        }
+    },
     "require-dev": {
         "vimeo/psalm": "^4.8",
-        "squizlabs/php_codesniffer": "3.*"
+        "squizlabs/php_codesniffer": "3.*",
+        "phpunit/phpunit": "^9"
     }
 }

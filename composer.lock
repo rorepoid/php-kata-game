@@ -1063,10 +1063,7 @@
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Console\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1776,9 +1773,6 @@
                 },
                 "files": [
                     "Resources/functions.php"
-                ],
-                "exclude-from-classmap": [
-                    "/Tests/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
