@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: php-game-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./src:/usr/app/src:Z
+      - ./public:/usr/app/public:Z
+      - ./tests:/usr/app/tests:Z
+      - ./psalm.xml:/usr/app/psalm.xml:Z
