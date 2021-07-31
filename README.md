@@ -10,7 +10,12 @@ This personal repo is a kata to play with PHP step by step where I try to make a
 - ⚡ Run the app in console
   ```shell  
   make run  
-  ```  
+  ```
+
+- 💁 Get Makefile help description
+  ```shell
+  make help
+  ```
 
 - 🧪 Run tests
   ```shell  
